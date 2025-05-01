@@ -1,0 +1,148 @@
+<html>
+
+<head>
+
+    <style>
+        body {
+            font-family: 'Helvetica Neue', sans-serif; 
+        }
+
+        .container {
+            max-width: 230px;
+            margin: 0 auto; 
+            padding: 20px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .form-row label {
+            flex: 1;
+        }
+
+        .form-row input[type="text"],
+        .form-row button {
+            flex: 2;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .form-row button {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+
+  <body>
+	<script src="popup.js"></script>
+  
+       <!-- Text input and search button -->
+	<div class="container">
+        <div class="form-row">
+    <form action="/search" method="get">
+        <label for="searchInput"></label>
+        <input type="text" id="searchInput" name="q" placeholder="Enter your TT Number">
+        <button type="button" id="searchButton">Search</button>
+		
+    </form>
+	</div>
+
+    <div class="form-row">
+    <!-- Selectable input with options -->
+    <form>
+        <label for="selectOption">Select KS:</label>
+        <select id="selectOption" name="option">
+            <option value="De ne ezt!">Please select!</option>
+            <option value="We have recognized a service disturbance on the above component and opened an incident ticket for this issue. Once the initial analysis is completed we will give you an exact description of the error. In accordance with the Service Level Agreement  (SLA) we will keep you informed of the current status and progress. For information or questions you can contact us at anytime. Please state the Ticket ID as reference.">Proactive ersmeldung</option>
+            <option value="With reference to the fault as reported by you, we have opened the above stated trouble ticket. This matter will be directly forwarded to the relevant service unit.">Reactive Ersmeldung</option>
+			<option value="Please be informed that service is still working properly since XX:XX MET, xxxxxxxxxx. The outage reason is still unknown for us and we are in contact with our provider to identify the root cause. As soon as we receive it we will share it with you.
+
+As the service is stable we are closing our trouble ticket in accordance with our Service Level Agreement.">Closing without RFO</option>
+			<option value="Please be informed that for further troubleshooting we have forwarded this case to our second level team. As soon as we receive their expertise we will update you accordingly.">Forwarded to 2ndLvL</option>
+			<option value="Please be informed that this outage is under investigation by the responsible service unit. We will update you as soon as we receive any further information.">Forwarded to Provider</option>
+			<option value="We would like to let you know that there is already an existing investigation ticket for this issue: _______.
+
+Therefore, until further updates received regarding the investigation, we will keep this ticket on hold and stop sending customer reports.
+
+As soon as we receive an update, we will inform you accordingly.
+">Related ticket</option>
+			<option value="De ne ezt!">----BC----</option>
+			<option value="Please be kindly informed, that we have proactively registered an issue on your service. The device(s) is (are) unreachable. Please inform us in case you have any information concerning maintenance work or activities affecting the power supply at the location. For further troubleshooting it is required to check the power status of the equipment and cables if they are seated properly to the correct port. Please perform these actions and send us the opening hours of the site as well, in case of technical dispatch would be needed by our service partner.
+Until your feedback we put our ticket on hold.">Basick check | no reload</option>
+			<option value="Please be kindly informed, that we have proactively registered an issue on your service. The router(s) is (are) unreachable. Please inform us in case you have any information concerning maintenance work or activities affecting the power supply at the location. For further troubleshooting it is required to reboot the router(s) and modem(s) on site, check the LED status after and before the reload and also please check the cables if they are seated properly to the correct port. Please perform these actions and send us the opening hours of the site as well, in case of technical dispatch would be needed by our service partner.
+Until your feedback we put our ticket on hold.">CE Basic Check</option>
+			<option value="Please be kindly informed, that we have proactively registered an issue on your service. The switch is unreachable. Please inform us in case you have any information concerning maintenance work or activities affecting the power supply at the location. For further troubleshooting it is required to reboot the switch on site, check the LED status after and before the reload and also please check the cables if they are seated properly to the correct port. Please perform these actions and send us the opening hours of the site as well, in case of technical dispatch would be needed by our service partner.
+Until your feedback we put our ticket on hold.">Switch basic check</option>
+			<option value="Please be kindly informed, that we have proactively registered an issue on your service. The Aruba appliance(s) is (are) unreachable. Please inform us in case you have any information concerning maintenance work or activities affecting the power supply at the location. For further troubleshooting it is required to reboot the ISP modem(s) on site, check the LED status after and before the reload and also please check the cables if they are seated properly to the correct port. Please perform these actions and send us the opening hours of the site as well, in case of technical dispatch would be needed by our service partner.
+Until your feedback we put our ticket on hold.">Basic Check Aruba</option>
+			<option value="Please be kindly informed, that we have proactively registered an issue on your service. The above mentioned device unreachable. Please inform us in case you have any information concerning maintenance work or activities affecting the power supply at the location. For further troubleshooting it is required to power cycle the device on site, check the LED status after and before the reload and also please check the cables if they are seated properly to the correct port. Please perform these actions and send us the opening hours of the site as well, in case of technical dispatch would be needed by our service partner.
+Until your feedback we put our ticket on hold.">General power check</option>
+			<option value="De ne ezt!">----  ----</option>
+			<option value="Please be informed that our second level team is still making every effort in order to resolve the reported issue. We are still in contact with our second level and tracking their investigation.
+Once we receive new information we will update you accordingly, but until then we will stop sending customer status messages.
+">2LvL still working</option>
+			<option value="Please be informed that our responsible service unit is still making every effort in order to resolve the reported issue. We are still in contact with our partner and tracking their investigation.
+As soon as we have further information we will share it with you.
+">Provider still working</option>
+			<option value="Please be informed that the connection has been stabilized and working properly since ________. The outage was caused by a power supply failure on site.
+
+Therefore we are closing this ticket in accordance with our Service Level Agreement.
+">Power Outage</option>
+			<option value="De ne ezt!">---COA---</option>
+			<option value="We would like to inform you that our device(s) is (are) not reachable on the location.
+
+Based on our documentation, the circuit connected to our device(s) is (are) customer owned; which means we are not responsible for the troubleshooting of the line issue.
+Please contact your own local internet provider and let us know if you need further assistance from us.
+
+In case you need assistance from us, make sure that you have rebooted (power cycle) our device and your internet provider onsite device. Please check the power status, and the cabling between the network elements. 
+Also please let us know the results of your service provider line investigation, the access hours of the site, and reachable local contact in case of technician dispatch. 
+
+Until your feedback we keep this ticket on hold and stop sending customer reports. 
+">COA - Total outage</option>
+			<option value="We would like to inform you that one of the line provider links are down on the location.
+
+Based on our documentation, the circuit connected to our device is customer owned; which means we are not responsible for the troubleshooting of the line issue.
+Please contact your own local internet provider and let us know if you need further assistance from us.
+
+In case you need assistance from us, make sure that you have rebooted (power cycle) our device and your internet provider onsite device. Please check the power status, and the cabling between the network elements. 
+Also please let us know the results of your service provider line investigation, the access hours of the site, and reachable local contact in case of technician dispatch. 
+
+Until your feedback we keep this ticket on hold and stop sending customer reports. 
+">COA - Link down</option>
+			<option value="De ne ezt!">--- Bosch ---</option>
+			<option value="Please be informed that we have proactively detected an outage affecting the following circuit:
+MAN Line ID: [full line ID]
+End points: [Standort A] - [Standort B]
+Therefore we have generated the current Trouble Ticket. The investigation is in progress, we will keep you informed about the proceedings regularly.
+">MAN proactive ersmeldung</option>
+			<option value="With reference to the fault reported by you for the below line, we have opened the above stated trouble ticket.
+
+MAN Line ID: [full line ID]
+End points: [Standort A] - [Standort B]
+
+This matter has been directly forwarded to the relevant service unit.
+
+As soon as we have an update available we will inform you accordingly.
+">MAN reactive ersmeldung</option>
+			<option value="De ne ezt!">---   ---</option>
+
+		</select>
+    </form>
+	</div>
+    </div>
+	
+  </body>
+</html>
